@@ -60,4 +60,5 @@ gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'jquery-rails'
 gem 'rails-controller-testing', group: [ :test ]
+gem 'figaro'
 ruby '2.3.5'
