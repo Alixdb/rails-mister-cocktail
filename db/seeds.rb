@@ -21,7 +21,7 @@ ingredients['drinks'].each do |aliment|
 end
 
 puts 'Creating cocktails...'
-5.times do
+20.times do
   post = Cocktail.new(
     name: Faker::HeyArnold.character
   )
