@@ -5,3 +5,27 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'json'
+require 'open-uri'
+require 'faker'
+
+filepath = 'http://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
+
+ingredient_list = open(filepath).read
+
+ingredients = JSON.parse(ingredient_list)
+# p ingredients
+
+ingredients['drinks'].each do |aliment|
+  Ingredient.create(name: aliment['strIngredient1'])
+end
+
+puts 'Creating cocktails...'
+5.times do
+  post = Cocktail.new(
+    name: Faker::HeyArnold.character
+  )
+  post.save
+end
+puts 'Finished!'
+
